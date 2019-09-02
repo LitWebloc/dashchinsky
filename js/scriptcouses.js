@@ -1,11 +1,17 @@
-//КУРСЫ НА СТРАНИЦАХ В ИЗБРАННОЕ(Главная)
-
+/*
+Данный код только для главной страницы, на вывод курсов.
+Его принцип - проверка есть ли в localstorage какие либо избранные курсы.
+Удаление и добавление происходит по двум переменным - заголовок и ссылка на страницу
+*/
+//Проверяет на существование localstorage для курсов, если его нет, то добавляет его и пишет что курсы не выбраны(главная страница)
 if (!localStorage["courses"]) {
     localStorage["courses"] = " ";
-    $(".coursesBlock").append("<b style=\"color:#E5E5E5; font-size: 24px;\">Курсы не добавленны в избранные</b>");
+    $(".coursesBlock").append("<b style=\"color:#E5E5E5; font-size: 24px;\">Курсы не добавленны в избранное</b>");
 } else {
+
+//Проверяет на наличии избранных курсов из localstorage, в ячейке на главной странице
     if (localStorage["courses"] == " ") {
-        $(".coursesBlock").append("<b style=\"color:#E5E5E5; font-size: 24px;\">Курсы не добавленны в избранные</b>");
+        $(".coursesBlock").append("<b style=\"color:#E5E5E5; font-size: 24px;\">Курсы не добавленны в избранное</b>");
     }
     let pokaz = [];
     pokaz = localStorage["courses"].split("%%%");
@@ -13,7 +19,7 @@ if (!localStorage["courses"]) {
         pokaz[i] = pokaz[i].split("%Q%")
 
     pokaz = pokaz.slice(0, -1);
-
+//После проверки какие страницы добавлены в избранные, выводит списки с курсами и ссылка на них
     for (let i = 0; i < pokaz.length; i++) {
         $(".coursesBlock").append('<li class="flex courses"><label><input onchange="locc(this);" class="checkCourses" type="checkbox" /><span class="textCourses">' + pokaz[i][1] + '</span><a href="' + pokaz[i][0] + '" class="linkCourses"><i class="material-icons">link</i></a></label></li>');
         $(".courses").each(function () {
@@ -33,6 +39,7 @@ if (!localStorage["courses"]) {
         $(".footer .right .material-icons").addClass("green-text");
 }
 
+//Тут функция самого добавления и убирания курса из избранных на главной странице ток. Принцип относительно простой, его суть в том, что проверяет на наличие чека в кликнутом чеке, если нет, то он удаляет из localstorage данный курс.
 function locc(t) {
     let coursesBlock = [],
         spanTEXT = $(".footer .number .read").text();

@@ -2742,7 +2742,7 @@ video.responsive-video {
   display: inline-block;
   float: none; }
 
-@media only screen and (max-width: 992px) {
+@media only screen and (max-width: 1021px) {
   /* line 204, ../scss/components/_global.scss */
   .pagination {
     width: 100%; }
@@ -2840,7 +2840,7 @@ ul.staggered-list li {
   .hide-on-small-only, .hide-on-small-and-down {
     display: none !important; } }
 
-@media only screen and (max-width: 992px) {
+@media only screen and (max-width: 1021px) {
   /* line 312, ../scss/components/_global.scss */
   .hide-on-med-and-down {
     display: none !important; } }
@@ -2850,12 +2850,12 @@ ul.staggered-list li {
   .hide-on-med-and-up {
     display: none !important; } }
 
-@media only screen and (min-width: 600px) and (max-width: 992px) {
+@media only screen and (min-width: 600px) and (max-width: 1021px) {
   /* line 322, ../scss/components/_global.scss */
   .hide-on-med-only {
     display: none !important; } }
 
-@media only screen and (min-width: 993px) {
+@media only screen and (min-width: 1022px) {
   /* line 327, ../scss/components/_global.scss */
   .hide-on-large-only {
     display: none !important; } }
@@ -2870,12 +2870,12 @@ ul.staggered-list li {
   .show-on-extra-large {
     display: block !important; } }
 
-@media only screen and (min-width: 993px) {
+@media only screen and (min-width: 1022px) {
   /* line 342, ../scss/components/_global.scss */
   .show-on-large {
     display: block !important; } }
 
-@media only screen and (min-width: 600px) and (max-width: 992px) {
+@media only screen and (min-width: 600px) and (max-width: 1021px) {
   /* line 347, ../scss/components/_global.scss */
   .show-on-medium {
     display: block !important; } }
@@ -2890,7 +2890,7 @@ ul.staggered-list li {
   .show-on-medium-and-up {
     display: block !important; } }
 
-@media only screen and (max-width: 992px) {
+@media only screen and (max-width: 1021px) {
   /* line 362, ../scss/components/_global.scss */
   .show-on-medium-and-down {
     display: block !important; } }
@@ -2964,7 +2964,7 @@ td, th {
   vertical-align: middle;
   border-radius: 2px; }
 
-@media only screen and (max-width: 992px) {
+@media only screen and (max-width: 1021px) {
   /* line 450, ../scss/components/_global.scss */
   table.responsive-table {
     width: 100%;
@@ -3340,7 +3340,7 @@ table span.badge {
   /* line 7, ../scss/components/_grid.scss */
   .container {
     width: 85%; } }
-@media only screen and (min-width: 993px) {
+@media only screen and (min-width: 1022px) {
   /* line 12, ../scss/components/_grid.scss */
   .container {
     width: 70%; } }
@@ -3744,7 +3744,7 @@ table span.badge {
       /* line 50, ../scss/components/_grid.scss */
       .row .col.push-m12 {
         left: 100%; } }
-    @media only screen and (min-width: 993px) {
+    @media only screen and (min-width: 1022px) {
       /* line 121, ../scss/components/_grid.scss */
       .row .col.l1 {
         width: 8.33333%;
@@ -4140,7 +4140,7 @@ nav {
   nav .nav-wrapper {
     position: relative;
     height: 100%; }
-  @media only screen and (min-width: 993px) {
+  @media only screen and (min-width: 1022px) {
     /* line 40, ../scss/components/_navbar.scss */
     nav a.sidenav-trigger {
       display: none; } }
@@ -4167,7 +4167,7 @@ nav {
       left: 50%;
       -webkit-transform: translateX(-50%);
               transform: translateX(-50%); }
-    @media only screen and (max-width: 992px) {
+    @media only screen and (max-width: 1021px) {
       /* line 60, ../scss/components/_navbar.scss */
       nav .brand-logo {
         left: 50%;
@@ -4660,13 +4660,13 @@ small {
     #toast-container {
       min-width: 100%;
       bottom: 0%; } }
-  @media only screen and (min-width: 601px) and (max-width: 992px) {
+  @media only screen and (min-width: 601px) and (max-width: 1021px) {
     /* line 1, ../scss/components/_toast.scss */
     #toast-container {
       left: 5%;
       bottom: 7%;
       max-width: 90%; } }
-  @media only screen and (min-width: 993px) {
+  @media only screen and (min-width: 1022px) {
     /* line 1, ../scss/components/_toast.scss */
     #toast-container {
       top: 10%;
@@ -4790,7 +4790,7 @@ small {
     background-color: #f6b2b5;
     will-change: left, right; }
 
-@media only screen and (max-width: 992px) {
+@media only screen and (max-width: 1021px) {
   /* line 88, ../scss/components/_tabs.scss */
   .tabs {
     display: -webkit-box;
@@ -5378,7 +5378,7 @@ body.keyboard-focused .dropdown-content li:focus {
   /* line 2, ../scss/components/_modal.scss */
   .modal:focus {
     outline: none; }
-  @media only screen and (max-width: 992px) {
+  @media only screen and (max-width: 1021px) {
     /* line 1, ../scss/components/_modal.scss */
     .modal {
       width: 80%; } }
@@ -6148,7 +6148,7 @@ textarea.materialize-textarea + label:after, .select-wrapper + label:after {
   /* line 241, ../scss/components/forms/_input-fields.scss */
   .input-field .prefix ~ label {
     margin-left: 3rem; }
-  @media only screen and (max-width: 992px) {
+  @media only screen and (max-width: 1021px) {
     /* line 244, ../scss/components/forms/_input-fields.scss */
     .input-field .prefix ~ input {
       width: 86%;
@@ -7163,7 +7163,7 @@ input[type=range]::-ms-thumb {
     right: 0;
     left: auto; }
 
-@media only screen and (max-width: 992px) {
+@media only screen and (max-width: 1021px) {
   /* line 175, ../scss/components/_sidenav.scss */
   .sidenav.sidenav-fixed {
     -webkit-transform: translateX(-105%);

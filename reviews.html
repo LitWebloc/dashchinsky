@@ -21,11 +21,22 @@
 
     <!--    Header end-->
     <div id="main">
+       <div class="row mb1">
+            <div class="col m12 xl7 h1-main">
+                <h1>Отзывы</h1>
+            </div>
+            <div class="col m12 xl5">
+                <ul class="breadcrums">
+                    <li><a href="">Главная</a></li>
+                    <li><span>Отзывы</span></li>
+                </ul>
+            </div>
+        </div>
         <div class="row">
             <div class="col l9">
                 <p class="text-main bg">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla, eum odio quas placeat tempora magnam, cupiditate, id animi, repudiandae beatae recusandae harum sed architecto! Explicabo odio a modi facere, distinctio nulla quisquam ipsam, impedit eum soluta, ullam suscipit minima, tempore necessitatibus harum animi hic perferendis rem architecto saepe voluptas. Nisi, totam fugit ipsa? Maxime in eveniet delectus quidem ipsum placeat?</p>
                 <div class="grid_post">
-                    <div class="grid-post-child bg">
+                    <div class="grid-post-child bg klient text">
                         <img src="img/review2.jpg" alt="" class="materialboxed">
                         <div class="post-content">
                             <div class="name">Дмитрий Тимошенкин</div>
@@ -38,7 +49,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="grid-post-child bg">
+                    <div class="grid-post-child bg text">
                         <img src="img/review2.jpg" alt="" class="materialboxed">
                         <div class="post-content">
                             <div class="name">Дмитрий Тимошенкин</div>
@@ -51,7 +62,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="grid-post-child bg">
+                    <div class="grid-post-child bg text">
                         <img src="img/review.jpg" alt="" class="materialboxed">
                         <div class="post-content">
                             <div class="name">Дмитрий Тимошенкин</div>
@@ -64,7 +75,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="grid-post-child bg">
+                    <div class="grid-post-child bg klient video">
                         <a class="modal-trigger video-m" data-href="WdlUOThnE_s" href="#modal1">
                             <img src="img/image.jpg" alt="" class="video">
                         </a>
@@ -79,7 +90,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="grid-post-child bg">
+                    <div class="grid-post-child Стажеровка bg text">
                         <img src="img/review.jpg" alt="" class="materialboxed">
                         <div class="post-content">
                             <div class="name">Дмитрий Тимошенкин</div>
@@ -92,7 +103,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="grid-post-child bg">
+                    <div class="grid-post-child bg klient text">
                         <img src="img/review.jpg" alt="" class="materialboxed">
                         <div class="post-content">
                             <div class="name">Дмитрий Тимошенкин</div>
@@ -105,7 +116,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="grid-post-child bg">
+                    <div class="grid-post-child Стажеровка bg video">
                         <a class="modal-trigger video-m" data-href="vNSx2PFPRes" href="#modal1">
                             <img src="img/image.jpg" alt="" class="video">
                         </a>
@@ -116,11 +127,11 @@
                                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi?</p>
                             </div>
                                 <div class="tag-post">
-                                    <div class="tag-items swiper-wrapper"><span class="swiper-slide">видео</span><span class="swiper-slide">клиенты</span><span class="swiper-slide">видео</span><span class="swiper-slide">клиенты</span></div>
+                                    <div class="tag-items swiper-wrapper"><span class="swiper-slide">видео</span><span class="swiper-slide">клиенты</span><span class="swiper-slide">видео</span><span class="swiper-slide">клиенты</span><span class="swiper-slide">видео</span><span class="swiper-slide">клиенты</span><span class="swiper-slide">видео</span><span class="swiper-slide">клиенты</span></div>
                                 </div>
                         </div>
                     </div>
-                    <div class="grid-post-child bg">
+                    <div class="grid-post-child Стажеровка bg text">
                         <img src="img/review.jpg" alt="" class="materialboxed">
                         <div class="post-content">
                             <div class="name">Дмитрий Тимошенкин</div>
@@ -137,8 +148,28 @@
             </div>
             <aside id="sidebar" class="col l3">
                 <div class="sidebar-item">
-                    <div class="bg">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium, cum.</p>
+                    <div id="filter" class="bg pc sidebar-block">
+                        <ul>
+                            <li id="all" class="active">Все</li>
+                            <li id="klient">Клиенты</li>
+                            <li id="kurs">Курсы</li>
+                            <li id="ctajer">Стажеровка</li>
+                            <li id="video">Видео</li>
+                            <li id="text">Текст</li>
+                        </ul>
+                    </div>
+                    <div class="mob filter-icon">
+                        <i class="material-icons">filter_list</i>
+                    </div>
+                    <div class="bg p2 sidebar-block">
+                        <div class="title pink accent-2 box-pink">Подписаться на рассылку</div>
+                        <div class="subscribeBlock">
+                            <form role="search" method="get" action="">
+                                <span><input id="subscribe" type="email" placeholder="Email" class="validate"></span>
+                                <label><input class="checkСonsent" type="checkbox" /><span class="textСonsent">Я даю согласие на обработку моих персональных данных</span></label>
+                                <button class="pink accent-2 subscribe" disabled type="submit">Подписаться</button>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </aside>

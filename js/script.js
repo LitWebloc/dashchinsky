@@ -143,6 +143,9 @@ $("#footerJS").before(footerJS);
 $("#footerJS").remove();
 //вставить header //
 
+//Тут удаление из оповещений в шапке, которые будут вводиться через админ панель
+//Удаление происходит путём добавления в localStorage тайтлом списков. И так как вывод через js проходит проверка, если заголовок есть в localStorage, то не выводить его в оповещение
+//Само удаление по клику на корзину
 $(".secondary-content").click(function () {
     console.log();
     if (!localStorage["notifications"])
@@ -157,6 +160,7 @@ $(".secondary-content").click(function () {
     notificationsNull();
 });
 
+//Вывод через js оповещения
 function notificationsNull() {
     if (localStorage["notifications"]) {
         let notification = localStorage["notifications"].split("%%%");
@@ -169,15 +173,19 @@ function notificationsNull() {
         });
         if ($(".notifications ul li").length == 0) {
             $(".notifications").html("<div class=\"notificationsNull\">Список пуст</div>");
+            $("#notifications .circle").addClass("none");
         }
     }
 }
 
+//Загрузка страницы
 $(window).load(function () {
     $(".preloader").css({
         "bottom": "100%"
     });
 });
+
+//Процент прочтения странцы, высчитывается процент, в зависимости сколько пользователь пролистал страницу
 $(window).scroll(WinScroll);
 
 function WinScroll() {
@@ -185,29 +193,46 @@ function WinScroll() {
     $("#WinScrool").remove();
     $('<style type="text/css" id="WinScrool"></style>').html('.WinScrool {width: ' + scrollPercent + '%}').appendTo('head');
 }
-function sliderTag(){
-    if ($(window).width() <= '995'){
-        console.log(true);
-    }else{
-        let swiper = new Swiper('.tag-post', {
-          slidesPerView: 'auto',
-          spaceBetween: 3,
-          freeMode: true,
+
+//Тэги в виде слайдера
+let swiper = new Swiper('.tag-post', {
+  slidesPerView: 'auto',
+  spaceBetween: 3,
+  freeMode: true,
+});
+
+//Тут все фунции, касаемые изменения экрана
+function windowSize(){
+    if($(window).width() < 1020){
+        $(".search").addClass("pc");
+    }
+    if($(window).width() > 1020){
+        console.log("sitebar");
+        //Фиксированный сайтбар
+        let sidebar = new StickySidebar('#sidebar', {
+            innerWrapperSelector: '.sidebar-item',
+            topSpacing: 86,
+            bottomSpacing: 0
         });
     }
 }
+//Когда документ готов к работе, тогда выполнять данный скрипт
 $(document).ready(function () {
     $('.modal').modal();
     $('input#input_text, textarea#textarea2').characterCounter();
     hideP();
-    
-    sliderTag();
+    $('.materialboxed').materialbox();
+    windowSize();
+    notificationsNull();
+    //Если разреение экрана было изменено
     $(window).resize(function() {
-        console.log("Разрешение экрана было изменено")
+        console.log("Разрешение экрана было изменено");
+        windowSize();
     });
 });
 
 
+//Добавляет градиент в блоке с текстом на главной. И убирает градиент в зависимости от скрола
 $('.hide-text').scroll(hideP);
 
 function hideP() {
@@ -220,31 +245,36 @@ function hideP() {
         $('<style type="text/css" id="hide-p"></style>').html('.body.hide-p:before {height: calc(50px - ' + procent + 'px)}').appendTo('head');
     }
 }
-if ($(window).width < 980) {
-    $(".search").addClass("pc");
-}
 
+//Показывает поиск на мобилке
 $(".header-icon .waves-effect.mob").on("click", function () {
     $(".search").hasClass("pc") ? $(".search").removeClass("pc") : $(".search").addClass("pc");
 });
+
+//Показывает меню на мобилке
 $(".menuIcon").click(function () {
     $(".sidenav-main").addClass("open");
     $(".bg_black").removeClass("none");
 });
+
+//Показывает блок с оповешениями
 $("#notifications").click(function () {
     $(".notifications").removeClass("none");
     notificationsNull();
 });
+
+//Показывает блок с текстом
 $("#info").click(function () {
     $(".info").removeClass("none");
 });
+
+//Убирает меню в мобилке
 $(".bg_black").click(function () {
-    if ($(".bg_black").hasClass("none")) {
-        $(".bg_black").removeClass("none");
-    } else {
-        $(".bg_black").addClass("none");
-    }
+    $(".bg_black").addClass("none");
+    $(".sidenav-main").removeClass("open");
 });
+
+//Проверка на наличие галочки подписки
 $(".checkСonsent").change(function () {
     if ($(this).prop("checked")) {
         $(".subscribe").removeAttr("disabled");
@@ -252,12 +282,10 @@ $(".checkСonsent").change(function () {
         $(".subscribe").attr("disabled", true);
     }
 });
+
+//Тут идёт обработка события, если клик был вне блока
 $(document).mouseup(function (e) {
-    let container = $(".sidenav-main");
-    if (container.has(e.target).length === 0) {
-        $(".sidenav-main").removeClass("open");
-    }
-    container = $(".search");
+    let container = $(".search");
     if (container.has(e.target).length === 0) {
         $(".search").addClass("pc");
     }
@@ -274,18 +302,32 @@ $(document).mouseup(function (e) {
         $(".video-frame.open .modal-content").html(' ');
     }
 });
-
-  $(document).ready(function(){
-    $('.materialboxed').materialbox();
-  });
+//Добавление видео отзыва в модальном окне(отзывы)
 $('.video-m').click(function(){
     const hrefFrame = $(this).data('href');
-    $('.video-frame .modal-content').html(`<iframe width="100%" height="500" src="https://www.youtube.com/embed/${hrefFrame}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`);
+    $('.video-frame .modal-content').html(`<iframe width="100%" src="https://www.youtube.com/embed/${hrefFrame}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`);
 });
 
-
-let sidebar = new StickySidebar('#secondary', {
-    innerWrapperSelector: '#search-2',
-    topSpacing: 0,
-    bottomSpacing: 0
+//Фильтр отзывов
+$('#filter li').click(function(){
+    let filterID = $(this).attr('id');
+    $('#filter li').removeClass("active");
+    $(this).addClass("active");
+    if(filterID == 'all'){
+        $('.grid-post-child').removeClass('none');
+    }else{
+        $('.grid-post-child').addClass('none');
+        $('.grid-post-child').each(function(){
+            if($(this).hasClass(filterID)){
+                $(this).removeClass('none');
+            }
+        });
+    }
+})
+$('.filter-icon').click(function(){
+    if($('#filter').hasClass('pc')){
+        $('#filter').removeClass('pc');
+    }else{
+        $('#filter').addClass('pc');
+    }
 });

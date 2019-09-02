@@ -20,10 +20,17 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="js/bin/materialize.min.js"></script>
     <script>
+/*
+Как работает:
+1) Проверяет есть ли вообще localstorage курсы, если нет, то добавляет
+2) Если был клик на чекбокс идёт запись ссылки где пользователь находится и тайтл страницы (Тут можно сделать любой уникальный заголовок, который в дальнейшем будет указываться в избранном, но значение берутся со страницы.)
+3) Удаление происходит такие способом. Так как localstorage это строка - то сначала разбивается всё на масивы в масиве, где происходит уже удаление масивов, если критерии заголовка и ссылки одинаковы.
+*/
+//        1)
         if (!localStorage["courses"]) {
             localStorage["courses"] = " ";
         } else {
-
+//            Тут просто находит в масиве из localstorage url страницы, если она есть, то чекбокс становится активным
             let du = [];
             du = localStorage["courses"].split("%%%");
             for (let i = 0; i < du.length; i++) {
@@ -33,8 +40,7 @@
             for(let i=0; i<du.length; i++){
                 if(du[i].indexOf(document.URL) == 0){
                     for(let i2=0; i2<du[i].length; i2++)
-                    $('.izbr span:contains("'+du[i2][1]+'")').siblings("input").prop("checked", true);
-//                    $('.izbr span:contains("'+du[1]+'")').siblings("input").addClass("sadasd");
+                        $('.izbr span:contains("'+du[i2][1]+'")').siblings("input").prop("checked", true);
                 }
             }
             console.log(du);
@@ -42,16 +48,21 @@
         $(".elected").change(Title);
 
         function Title() {
+//            1)
             if (!localStorage["courses"]) {
                 localStorage["courses"] = " ";
             }
+//           2)
             let ddd = [document.URL, $("span").text()],
                 lll = ddd[0] + "%Q%" + ddd[1] + "%%%";
 
             if ($("input").prop("checked")) {
+//                3)
                 localStorage["courses"] = localStorage["courses"].replace(new RegExp(lll, 'g'), ' ');
+//                2)
                 localStorage["courses"] = lll + localStorage["courses"];
             } else {
+//                3)
                 localStorage["courses"] = localStorage["courses"].replace(new RegExp(lll, 'g'), '');
             }
         }
