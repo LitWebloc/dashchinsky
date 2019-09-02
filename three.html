@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/materialize.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style type="text/css"></style>
+</head>
+<body>
+   <h1>Как сделать мета тег Title уникальным, тег тег Title</h1>
+    <label class="izbr">
+        <input type="checkbox" class="elected"/>
+        <span class="stitile">Как сделать мета тег Title уникальным</span>
+    </label>
+    <div></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="js/bin/materialize.min.js"></script>
+    <script>
+        if (!localStorage["courses"]) {
+            localStorage["courses"] = " ";
+        } else {
+
+            let du = [];
+            du = localStorage["courses"].split("%%%");
+            for (let i = 0; i < du.length; i++) {
+                du[i] = du[i].split("%Q%")
+            }
+            du = du.slice(0, -1);
+            for(let i=0; i<du.length; i++){
+                if(du[i].indexOf(document.URL) == 0){
+                    for(let i2=0; i2<du[i].length; i2++)
+                    $('.izbr span:contains("'+du[i2][1]+'")').siblings("input").prop("checked", true);
+//                    $('.izbr span:contains("'+du[1]+'")').siblings("input").addClass("sadasd");
+                }
+            }
+            console.log(du);
+        }
+        $(".elected").change(Title);
+
+        function Title() {
+            if (!localStorage["courses"]) {
+                localStorage["courses"] = " ";
+            }
+            let ddd = [document.URL, $("span").text()],
+                lll = ddd[0] + "%Q%" + ddd[1] + "%%%";
+
+            if ($("input").prop("checked")) {
+                localStorage["courses"] = localStorage["courses"].replace(new RegExp(lll, 'g'), ' ');
+                localStorage["courses"] = lll + localStorage["courses"];
+            } else {
+                localStorage["courses"] = localStorage["courses"].replace(new RegExp(lll, 'g'), '');
+            }
+        }
+        
+        
+    </script>
+</body>
+</html>
