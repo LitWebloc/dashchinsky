@@ -203,10 +203,10 @@ let swiper = new Swiper('.tag-post', {
 
 //Тут все фунции, касаемые изменения экрана
 function windowSize(){
-    if($(window).width() < 1020){
+    if($(window).width() < 1180){
         $(".search").addClass("pc");
     }
-    if($(window).width() > 1020){
+    if($(window).width() > 1180){
         console.log("sitebar");
         //Фиксированный сайтбар
         let sidebar = new StickySidebar('#sidebar', {
@@ -216,6 +216,7 @@ function windowSize(){
         });
     }
 }
+
 //Когда документ готов к работе, тогда выполнять данный скрипт
 $(document).ready(function () {
     $('.modal').modal();
@@ -323,6 +324,7 @@ $('#filter li').click(function(){
             }
         });
     }
+    windowSize();
 })
 $('.filter-icon').click(function(){
     if($('#filter').hasClass('pc')){
