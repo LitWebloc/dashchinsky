@@ -207,13 +207,15 @@ function windowSize(){
         $(".search").addClass("pc");
     }
     if($(window).width() > 1180){
-        console.log("sitebar");
         //Фиксированный сайтбар
-        let sidebar = new StickySidebar('#sidebar', {
-            innerWrapperSelector: '.sidebar-item',
-            topSpacing: 86,
-            bottomSpacing: 0
-        });
+        if($("aside").is('#sidebar')){
+            console.log("site")
+            let sidebar = new StickySidebar('#sidebar', {
+                innerWrapperSelector: '.sidebar-item',
+                topSpacing: 86,
+                bottomSpacing: 0
+            });
+        }
     }
 }
 

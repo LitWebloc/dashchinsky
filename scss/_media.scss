@@ -44,7 +44,12 @@
         grid-template-columns: 1fr 1fr;
     }
     .grid_post {
-        grid-template-columns: calc(100vw - 23px);
+        grid-template-columns: calc(100vw - 27px);
+    }
+    .courses-grid{
+        .grid {
+            grid-template-columns: 1fr;
+        }
     }
     header {
         width: 100vw;
